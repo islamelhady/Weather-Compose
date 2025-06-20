@@ -40,11 +40,12 @@ ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serializatio
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
+
 
 [bundles]
 koin = ["koin-android", "koin-androidx-compose"]
-ktor-client = ["ktor-client-core", "ktor-client-android", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json"]
-
+ktor-client = ["ktor-client-core", "ktor-client-android", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-client-logging"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
