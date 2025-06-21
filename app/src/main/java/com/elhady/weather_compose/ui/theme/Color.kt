@@ -8,9 +8,10 @@ val LightBackground = Color(0xFFF0F8FF)
 val CardLight = Color(0xFFFFFFFF)
 val TextDark = Color(0xFF1E1E1E)
 val TextLightSecondary = Color(0xFF6A6A6A)
+val RangeBackgroundLight = Color(0x14060414)
 
 // Dark Theme Colors
 val DarkBlueGradientStart = Color(0xFF1A2027)
 val DarkBlueGradientEnd = Color(0xFF060414)
-val CardDark = Color(0x338E95B9) // A semi-transparent dark blue/gray
+val CardDark = Color(0x338E95B9)
 val TextWhite = Color.White

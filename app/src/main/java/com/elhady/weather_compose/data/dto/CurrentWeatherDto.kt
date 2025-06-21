@@ -12,5 +12,15 @@ data class CurrentWeatherDto(
     @SerialName("weather_code")
     val weatherCode: Int?,
     @SerialName("wind_speed_10m")
-    val windSpeed10m: Double?
+    val windSpeed10m: Double?,
+    @SerialName("relative_humidity_2m")
+    val humidity: Int,
+    @SerialName("pressure_msl")
+    val pressure: Double,
+    @SerialName("apparent_temperature")
+    val feelsLike: Double,
+    @SerialName("uv_index")
+    val uvIndex: Double,
+    @SerialName("precipitation_probability")
+    val rainChance: Int
 )

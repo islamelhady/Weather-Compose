@@ -3,7 +3,12 @@ package com.elhady.weather_compose.domain.entities
 data class Weather(
     val temperature: Double,
     val windSpeed: Double,
-    val weatherType: WeatherType
+    val weatherType: WeatherType,
+    val humidity: Int,
+    val pressure: Int,
+    val feelsLike: Double,
+    val uvIndex: Double,
+    val rainChance: Int
 
 )
 

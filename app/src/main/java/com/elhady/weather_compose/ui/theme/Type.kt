@@ -5,6 +5,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.elhady.weather_compose.R
 
@@ -16,40 +17,26 @@ val Urbanist = FontFamily(
 )
 
 val Typography = Typography(
-    displayMedium = TextStyle(
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 80.sp
-    ),
+    // For the location "Baghdad"
     titleLarge = TextStyle(
         fontFamily = Urbanist,
         fontWeight = FontWeight.Medium,
-        fontSize = 20.sp
+        fontSize = 16.sp,
+        letterSpacing = 0.25.sp
     ),
+    // For the large temperature "24°C"
+    displayLarge = TextStyle(
+        fontFamily = Urbanist,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 64.sp,
+        letterSpacing = 0.25.sp
+    ),
+    // For the weather description "Partly cloudy"
     titleMedium = TextStyle(
         fontFamily = Urbanist,
         fontWeight = FontWeight.Medium,
-        fontSize = 18.sp
+        fontSize = 16.sp,
+        letterSpacing = 0.25.sp,
+        textAlign = TextAlign.Center
     ),
-    titleSmall = TextStyle(
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp
-    ),
-    bodyLarge = TextStyle(
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.Bold,
-        fontSize = 18.sp
-    ),
-    bodyMedium = TextStyle(
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        color = TextLightSecondary
-    ),
-    labelMedium = TextStyle(
-        fontFamily = Urbanist,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
 )

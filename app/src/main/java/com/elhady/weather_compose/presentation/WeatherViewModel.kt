@@ -18,7 +18,7 @@ class WeatherViewModel(
     private val _state = MutableStateFlow(WeatherUIState())
     val state = _state.asStateFlow()
 
-    private fun loadWeather(latitude: Double, longitude: Double) {
+    fun loadWeather() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, error = null) }
             val location = locationTracker.getCurrentLocation()

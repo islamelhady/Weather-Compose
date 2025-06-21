@@ -67,6 +67,8 @@ dependencies {
 
     // Location Service
     implementation(libs.play.services.location)
+    implementation(libs.accompanist.permissions)
+
 
 
     // Test Dependencies

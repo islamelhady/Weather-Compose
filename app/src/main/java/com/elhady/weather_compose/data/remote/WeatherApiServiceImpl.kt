@@ -18,6 +18,6 @@ class WeatherApiServiceImpl(private val client: HttpClient) : WeatherApiService 
 
     companion object {
         private const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
-        private const val CURRENT_WEATHER_PARAMS = "temperature_2m,weather_code,wind_speed_10m"
+        private const val CURRENT_WEATHER_PARAMS = "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,surface_pressure,uv_index,wind_speed_10m,weather_code"
     }
 }
