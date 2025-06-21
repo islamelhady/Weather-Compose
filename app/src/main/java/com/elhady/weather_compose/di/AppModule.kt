@@ -4,6 +4,7 @@ import com.elhady.weather_compose.data.remote.WeatherApiService
 import com.elhady.weather_compose.data.remote.WeatherApiServiceImpl
 import com.elhady.weather_compose.data.repository.WeatherRepositoryImp
 import com.elhady.weather_compose.domain.repository.WeatherRepository
+import com.elhady.weather_compose.presentation.WeatherViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -11,6 +12,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -36,6 +38,9 @@ val appModule = module {
     }
     single<WeatherRepository> {
         WeatherRepositoryImp(get())
+    }
+    viewModel() {
+        WeatherViewModel(get())
     }
 
 }
