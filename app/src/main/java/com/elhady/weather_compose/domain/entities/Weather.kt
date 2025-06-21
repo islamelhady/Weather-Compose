@@ -8,8 +8,14 @@ data class Weather(
     val pressure: Int,
     val feelsLike: Double,
     val uvIndex: Double,
-    val rainChance: Int
+    val rainChance: Int,
+    val hourlyForecast: List<HourlyWeather>
+)
 
+data class HourlyWeather(
+    val time: String,
+    val temperature: Int,
+    val weatherType: WeatherType
 )
 
 sealed class WeatherType(val description: String, val iconRes: Int) {

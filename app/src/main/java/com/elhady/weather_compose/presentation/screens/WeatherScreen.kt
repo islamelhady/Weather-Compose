@@ -21,6 +21,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.elhady.weather_compose.presentation.WeatherUIState
 import com.elhady.weather_compose.presentation.WeatherViewModel
 import com.elhady.weather_compose.presentation.components.CurrentWeatherHeader
+import com.elhady.weather_compose.presentation.components.HourlyForecastSection
 import com.elhady.weather_compose.presentation.components.WeatherDetailsGrid
 import com.elhady.weather_compose.ui.theme.LightBackground
 import com.elhady.weather_compose.ui.theme.LightBlue
@@ -106,6 +107,8 @@ fun WeatherContent(state: WeatherUIState) {
 
             }
             WeatherDetailsGrid(state = state)
+            Spacer(modifier = Modifier.height(32.dp))
+            HourlyForecastSection(state = state)
         }
     }
 }

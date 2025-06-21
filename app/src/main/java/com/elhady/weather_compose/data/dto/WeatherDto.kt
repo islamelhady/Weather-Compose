@@ -20,5 +20,7 @@ data class WeatherDto(
     @SerialName("timezone_abbreviation")
     val timezoneAbbreviation: String?,
     @SerialName("utc_offset_seconds")
-    val utcOffsetSeconds: Int?
+    val utcOffsetSeconds: Int?,
+    @SerialName("hourly") // New property
+    val hourlyData: HourlyDataDto
 )
