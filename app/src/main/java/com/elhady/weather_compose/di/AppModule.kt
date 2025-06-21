@@ -2,6 +2,8 @@ package com.elhady.weather_compose.di
 
 import com.elhady.weather_compose.data.remote.WeatherApiService
 import com.elhady.weather_compose.data.remote.WeatherApiServiceImpl
+import com.elhady.weather_compose.data.repository.WeatherRepositoryImp
+import com.elhady.weather_compose.domain.repository.WeatherRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -31,6 +33,9 @@ val appModule = module {
 
     single<WeatherApiService> {
         WeatherApiServiceImpl(get())
+    }
+    single<WeatherRepository> {
+        WeatherRepositoryImp(get())
     }
 
 }
