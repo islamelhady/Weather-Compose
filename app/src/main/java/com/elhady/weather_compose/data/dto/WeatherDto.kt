@@ -10,7 +10,7 @@ data class WeatherDto(
     @SerialName("elevation")
     val elevation: Double?,
     @SerialName("generationtime_ms")
-    val generationtimeMs: Double?,
+    val generationTimeMs: Double?,
     @SerialName("latitude")
     val latitude: Double?,
     @SerialName("longitude")
@@ -21,6 +21,8 @@ data class WeatherDto(
     val timezoneAbbreviation: String?,
     @SerialName("utc_offset_seconds")
     val utcOffsetSeconds: Int?,
-    @SerialName("hourly") // New property
-    val hourlyData: HourlyDataDto
+    @SerialName("hourly")
+    val hourlyData: HourlyDataDto,
+    @SerialName("daily")
+    val dailyData: DailyDataDto
 )

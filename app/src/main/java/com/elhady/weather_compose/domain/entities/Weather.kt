@@ -9,12 +9,20 @@ data class Weather(
     val feelsLike: Double,
     val uvIndex: Double,
     val rainChance: Int,
-    val hourlyForecast: List<HourlyWeather>
+    val hourlyForecast: List<HourlyWeather>,
+    val dailyForecast: List<DailyWeather>
 )
 
 data class HourlyWeather(
     val time: String,
     val temperature: Int,
+    val weatherType: WeatherType
+)
+
+data class DailyWeather(
+    val day: String,
+    val maxTemp: Int,
+    val minTemp: Int,
     val weatherType: WeatherType
 )
 

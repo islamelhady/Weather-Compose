@@ -23,6 +23,7 @@ import com.elhady.weather_compose.presentation.WeatherViewModel
 import com.elhady.weather_compose.presentation.components.CurrentWeatherHeader
 import com.elhady.weather_compose.presentation.components.HourlyForecastSection
 import com.elhady.weather_compose.presentation.components.WeatherDetailsGrid
+import com.elhady.weather_compose.presentation.components.WeeklyForecastSection
 import com.elhady.weather_compose.ui.theme.LightBackground
 import com.elhady.weather_compose.ui.theme.LightBlue
 import org.koin.androidx.compose.koinViewModel
@@ -109,6 +110,22 @@ fun WeatherContent(state: WeatherUIState) {
             WeatherDetailsGrid(state = state)
             Spacer(modifier = Modifier.height(32.dp))
             HourlyForecastSection(state = state)
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ) {
+            CurrentWeatherHeader(state = state)
+            Spacer(modifier = Modifier.height(32.dp))
+            WeatherDetailsGrid(state = state)
+            Spacer(modifier = Modifier.height(32.dp))
+            HourlyForecastSection(state = state)
+            Spacer(modifier = Modifier.height(32.dp))
+
+            WeeklyForecastSection(state = state)
+
+            Spacer(modifier = Modifier.height(32.dp))
         }
     }
 }
