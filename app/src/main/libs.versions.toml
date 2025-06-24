@@ -1,0 +1,27 @@
+toml
+[versions]
+# Coroutines
+coroutines = "1.8.0"  # أو أحدث إصدار مستقر
+
+# Ktor
+ktor = "2.3.10" # أو أحدث إصدار مستقر. تأكد من توافق الإصدارات بين مكونات Ktor
+
+# Koin
+koin = "3.5.3" # أو أحدث إصدار مستقر لـ Koin (تأكد من اختيار الإصدار المناسب لـ Android/KMP)
+koinAndroid = "3.5.3" # إذا كنت تستخدم Koin خصيصًا لـ Android
+koinCompose = "3.5.3" # إذا كنت تستخدم Koin مع Jetpack Compose
+
+# ... (إصدارات أخرى قد تكون لديك)
+kotlin = "1.9.22" # كمثال، قد يكون لديك هذا بالفعل
+agp = "8.2.2"    # كمثال، قد يكون لديك هذا بالفعل
+
+[libraries]
+# Coroutines
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+# coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" } # للاختبار
+
+# Ktor - اختر المحركات والميزات التي تحتاجها
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" } # محرك Android
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }       # محرك CIO (بد
