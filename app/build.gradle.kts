@@ -65,10 +65,6 @@ dependencies {
     // Lifecycle ViewModel (for viewModelScope)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    // Location Service
-    implementation(libs.play.services.location)
-
-
     // Test Dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
