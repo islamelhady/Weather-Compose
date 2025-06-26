@@ -1,7 +1,9 @@
 package com.elhady.weather_compose.data.dto
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class CurrentWeatherDto(
     @SerialName("interval")
     val interval: Int?,

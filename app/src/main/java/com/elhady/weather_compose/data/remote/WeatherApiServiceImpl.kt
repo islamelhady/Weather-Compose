@@ -9,10 +9,22 @@ import io.ktor.client.request.parameter
 class WeatherApiServiceImpl(private val client: HttpClient) : WeatherApiService {
 
     override suspend fun getWeather(latitude: Double, longitude: Double): WeatherDto {
-        return client.get(BASE_URL) {
+        return client.get("https://api.open-meteo.com/v1/forecast") {
+            // This is the safer way to add URL parameters
             parameter("latitude", latitude)
             parameter("longitude", longitude)
-            parameter("current", API_PARAMS)
+            parameter(
+                "current",
+                "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,surface_pressure,uv_index,wind_speed_10m,weather_code"
+            )
+            parameter(
+                "hourly",
+                "temperature_2m,weather_code"
+            )
+            parameter(
+                "daily",
+                "weather_code,temperature_2m_max,temperature_2m_min"
+            )
         }.body()
     }
 
