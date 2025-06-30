@@ -1,30 +1,24 @@
 package com.elhady.weather_compose.data.dto
 
+import android.annotation.SuppressLint
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@SuppressLint("UnsafeOptInUsageError")
 @Serializable
-data class WeatherDto(
-    @SerialName("current")
-    val current: CurrentWeatherDto?,
+data class WeatherDto (
+    val latitude: Double,
+    val longitude: Double,
     @SerialName("current_units")
-    val currentUnits: CurrentUnitsDto?,
-    @SerialName("elevation")
-    val elevation: Double?,
-    @SerialName("generationtime_ms")
-    val generationTimeMs: Double?,
-    @SerialName("latitude")
-    val latitude: Double?,
-    @SerialName("longitude")
-    val longitude: Double?,
-    @SerialName("timezone")
-    val timezone: String?,
-    @SerialName("timezone_abbreviation")
-    val timezoneAbbreviation: String?,
-    @SerialName("utc_offset_seconds")
-    val utcOffsetSeconds: Int?,
-    @SerialName("hourly")
-    val hourlyData: HourlyDataDto,
-    @SerialName("daily")
-    val dailyData: DailyDataDto
+    val currentUnits: CurrentUnitsDto,
+    val current: CurrentDto,
+    @SerialName("hourly_units")
+    val hourlyUnits: HourlyUnitsDto,
+    val hourly: HourlyDto,
+    @SerialName("daily_units")
+    val dailyUnits: DailyUnitsDto,
+    val daily: DailyDto
 )
+
+
+

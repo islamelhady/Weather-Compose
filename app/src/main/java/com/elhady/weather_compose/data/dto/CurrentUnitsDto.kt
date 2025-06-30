@@ -1,16 +1,26 @@
 package com.elhady.weather_compose.data.dto
 
+import android.annotation.SuppressLint
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-data class CurrentUnitsDto(
-    @SerialName("interval")
-    val interval: String?,
+@SuppressLint("UnsafeOptInUsageError")
+@Serializable
+data class CurrentUnitsDto (
+    val time: String,
     @SerialName("temperature_2m")
-    val temperature2m: String?,
-    @SerialName("time")
-    val time: String?,
+    val temperature: String,
+    @SerialName("relative_humidity_2m")
+    val humidity: String,
+    @SerialName("uv_index")
+    val uvIndex: String,
+    @SerialName("is_day")
+    val isDay: String,
+    val rain: String,
     @SerialName("weather_code")
-    val weatherCode: String?,
+    val weatherCode: String,
+    @SerialName("surface_pressure")
+    val pressure: String,
     @SerialName("wind_speed_10m")
-    val windSpeed10m: String?
+    val windSpeed: String
 )
