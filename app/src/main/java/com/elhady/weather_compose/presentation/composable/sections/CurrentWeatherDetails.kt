@@ -11,9 +11,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.weather_compose.R
+import com.elhady.weather_compose.di.appModule
 import com.elhady.weather_compose.presentation.composable.card.WeatherInfoCard
 import com.elhady.weather_compose.presentation.state.CurrentWeatherDetailsState
-import com.elhady.weather_compose.presentation.theme.WeatherTheme
+import com.elhady.weather_compose.presentation.viewmodel.WeatherViewModel
+import org.koin.compose.getKoin
+import org.koin.core.context.startKoin
 
 @Composable
 fun CurrentWeatherDetails(
@@ -75,17 +78,16 @@ fun CurrentWeatherDetails(
 @Preview(showBackground = true)
 @Composable
 private fun CurrentWeatherDetailsPreview() {
-    WeatherTheme {
-        CurrentWeatherDetails(
-            currentWeatherDetailsState = CurrentWeatherDetailsState(
-                windSpeed = 10,
-                humidity = 10,
-                rain = 3,
-                uvIndex = 10,
-                pressure = 10,
-                temperature = 10,
-                isDay = true
-            )
+    startKoin { modules(appModule) }
+    CurrentWeatherDetails(
+        currentWeatherDetailsState = CurrentWeatherDetailsState(
+            windSpeed = 10,
+            humidity = 10,
+            rain = 3,
+            uvIndex = 10,
+            pressure = 10,
+            temperature = 10,
+            isDay = true
         )
-    }
+    )
 }

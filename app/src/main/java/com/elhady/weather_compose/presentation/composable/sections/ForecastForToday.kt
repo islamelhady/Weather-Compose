@@ -1,5 +1,6 @@
 package com.elhady.weather_compose.presentation.composable.sections
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,10 +21,12 @@ import com.elhady.weather_compose.presentation.theme.MyWeatherTheme
 import com.elhady.weather_compose.presentation.theme.Urbanist
 import com.elhady.weather_compose.presentation.theme.WeatherTheme
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun ForecastForToday(
     hourlyForecastStates: List<HourlyForecastState>
 ) {
+
     Column {
         Text(
             text = "Today",

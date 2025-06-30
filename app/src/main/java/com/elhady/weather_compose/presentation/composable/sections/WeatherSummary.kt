@@ -1,9 +1,12 @@
 package com.elhady.weather_compose.presentation.composable.sections
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -16,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
@@ -24,9 +28,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import com.elhady.weather_compose.presentation.composable.card.CityName
 import com.elhady.weather_compose.presentation.composable.card.TemperatureInfo
+import com.elhady.weather_compose.presentation.extensionFunctions.dropShadow
 import com.elhady.weather_compose.presentation.state.WeatherSummaryState
 import com.elhady.weather_compose.presentation.state.wmoCodeToWeatherConditionState
 import com.elhady.weather_compose.presentation.theme.WeatherTheme
+import com.elhady.weather_compose.presentation.viewmodel.WeatherViewModel
+import org.koin.java.KoinJavaComponent.getKoin
 import kotlin.math.min
 
 @Composable
@@ -37,7 +44,7 @@ fun WeatherSummary(
 ) {
     val density = LocalDensity.current
     val scrollStateDp = with(density) { scrollState.value.toDp() }
-    val state = min(scrollStateDp.value / 212, 1f) // from 0 to 1
+    var state = min(scrollStateDp.value / 212, 1f) // from 0 to 1
     val screenWidth = LocalConfiguration.current.screenWidthDp
     var imageWidthDp by remember { mutableStateOf(0.dp) }
     var temperatureInfoWidthDp by remember { mutableStateOf(0.dp) }
@@ -100,19 +107,22 @@ fun WeatherSummary(
 }
 
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    backgroundColor = 0xFF060414,
+)
+
+@Preview(showBackground = true, showSystemUi = false, backgroundColor = 0xFFFFFFFF)
 @Composable
-fun WeatherSummaryPreview() {
-    WeatherTheme {
-        WeatherSummary(
-            weatherSummaryState = WeatherSummaryState(
-                city = "Cairo",
-                currentTemperature = 32,
-                maxTemperature = 32,
-                minTemperature = 20,
-                weatherConditionState = wmoCodeToWeatherConditionState(wmoCode = 1),
-            ),
-            scrollState = rememberScrollState()
-        )
-    }
+fun previewWeatherState() {
+    WeatherSummary(
+        weatherSummaryState = WeatherSummaryState(
+            city = "Cairo",
+            currentTemperature = 32,
+            maxTemperature = 32,
+            minTemperature = 20,
+            weatherConditionState = wmoCodeToWeatherConditionState(wmoCode = 1),
+        ),
+        scrollState = rememberScrollState()
+    )
 }

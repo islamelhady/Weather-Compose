@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.elhady.weather_compose.presentation.composable.card.WeeklyForecastItem
 import com.elhady.weather_compose.presentation.state.DailyForecastState
 import com.elhady.weather_compose.presentation.state.getFakeWeatherState
+import com.elhady.weather_compose.presentation.state.wmoCodeToWeatherConditionState
 import com.elhady.weather_compose.presentation.theme.MyWeatherTheme
 import com.elhady.weather_compose.presentation.theme.WeatherTheme
 import com.elhady.weather_compose.presentation.theme.Urbanist
@@ -30,8 +30,6 @@ import com.elhady.weather_compose.presentation.theme.Urbanist
 fun ForecastForWeek(
     dailyForecastStates: List<DailyForecastState>
 ) {
-    if (dailyForecastStates.isEmpty()) return
-
     Column(
         modifier = Modifier.padding(horizontal = 12.dp)
     ) {
@@ -45,7 +43,6 @@ fun ForecastForWeek(
         Spacer(modifier = Modifier.height(12.dp))
         Column(
             modifier = Modifier
-                .fillMaxWidth()
                 .background(
                     color = MyWeatherTheme.colors.surfaceTransparent70,
                     shape = RoundedCornerShape(24.dp)
@@ -56,15 +53,13 @@ fun ForecastForWeek(
                     shape = RoundedCornerShape(24.dp)
                 )
         ) {
-            dailyForecastStates.forEachIndexed { index, state ->
-                WeeklyForecastItem(state, Modifier.padding(horizontal = 16.dp))
-                if (index < dailyForecastStates.size - 1) {
-                    HorizontalDivider(
-                        thickness = 1.dp,
-                        color = MyWeatherTheme.colors.oppositeColorTransparent8,
-                        modifier = Modifier.padding(horizontal = 16.dp)
-                    )
-                }
+            WeeklyForecastItem(dailyForecastStates[0], Modifier.padding(horizontal = 16.dp))
+            dailyForecastStates.drop(1).forEach {
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = MyWeatherTheme.colors.oppositeColorTransparent8
+                )
+                WeeklyForecastItem(it, Modifier.padding(horizontal = 16.dp))
             }
         }
     }
@@ -72,7 +67,10 @@ fun ForecastForWeek(
 
 
 @RequiresApi(Build.VERSION_CODES.O)
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    backgroundColor = 0xFFFFFFFF
+)
 @Composable
 private fun ForecastForWeekPreview() {
     WeatherTheme(isDay = true) {
@@ -83,7 +81,7 @@ private fun ForecastForWeekPreview() {
 
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFF060414)
 @Composable
 private fun ForecastForWeekDarkPreview() {
     WeatherTheme(isDay = false) {
