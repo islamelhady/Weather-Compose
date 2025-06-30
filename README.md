@@ -1,41 +1,19 @@
+<img width="1658" height="1614" alt="screen" src="https://github.com/user-attachments/assets/34ff8186-da06-4dd3-ae8b-1094b4f651b4" />
+
 # 🌤️ Weather Compose
-
-A modern Android weather application built with **Jetpack Compose**, following best practices and a clean architecture approach.
-
-## 🚀 Tech Stack
-
-*   **Jetpack Compose:** For building a reactive and modern UI.
-*   **Koin:** Lightweight dependency injection framework.
-*   **Ktor Client:** For handling network requests and API communication.
-*   **Kotlinx Serialization:** For parsing JSON responses into Kotlin objects.
-*   **MVVM Architecture:** Ensuring a clear separation of concerns.
-*   **Clean Architecture:** Structured into Data, Domain, and Presentation layers.
-*   **Coroutines & Flow:** For asynchronous programming and reactive data streams.
-*   **Play Services Location:** For fetching the user's current coordinates.
-*   **Accompanist Permissions:** Seamless permission management in Compose.
+A simple, modern weather application built with **Jetpack Compose**.
 
 ## ✨ Features
+*   **Live Updates:** Current weather based on your location.
+*   **Forecast:** Hourly and 7-day weather predictions.
+*   **Modern UI:** Full support for Dark and Light modes.
 
-*   **Automatic Location:** Get real-time weather data based on your current GPS location.
-*   **Current Weather:** Detailed information including temperature, humidity, wind speed, pressure, and UV index.
-*   **Hourly Forecast:** Visualized weather updates for the next 24 hours.
-*   **7-Day Forecast:** Daily weather predictions for the upcoming week.
-*   **Dynamic UI:** Fully supports Light and Dark modes, with UI elements that adapt to the time of day and weather conditions.
-*   **Error Handling:** Robust error states and loading indicators with "Retry" functionality.
+## 🎨 Design
+*   **Figma:** [View Design](https://www.figma.com/design/HUCmOL2AJpDeeyglmkVPAn/Weather?node-id=15-1651&p=f&t=3m4BKNQoS19dvYI3-0)
 
-## 🛠️ Project Structure
-
-The project follows **Clean Architecture** principles:
-- **Data:** Contains DTOs, Repository implementations, and the API client.
-- **Domain:** Contains core Business Logic (Entities, Repository Interfaces, and Use Cases).
-- **Presentation:** Contains ViewModels, UI Screens, Composables, and Theme definitions.
-
-## 🔌 Data Source
-
-This app uses the [Open-Meteo API](https://open-meteo.com/) for high-resolution weather data.
-
-## 📸 Screenshots
-
-| Screen |
-| :---: | |
-| ![screen](D:\Android Projects\Weather-Compose\screenshot\screen.png) |
+## 🛠️ Tech Stack
+*   **UI:** Jetpack Compose
+*   **Networking:** Ktor & Kotlinx Serialization
+*   **DI:** Koin
+*   **Architecture:** MVVM + Clean Architecture
+*   **API:** [Open-Meteo](https://open-meteo.com/)
